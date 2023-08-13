@@ -101,20 +101,29 @@ section#home {
     .images {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         overflow: hidden;
 
         img {
             position: absolute;
             width: 100%;
-
             top: -20%;
-            height: min-content;
+
+            @media (max-width: 1700px) {
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: translateX(-50%);
+            }
         }
 
         .people {
             z-index: 2;
             top: 4%;
+
+            @media (max-width: 1700px) {}
         }
 
         .title {
@@ -156,6 +165,7 @@ section#info {
         align-items: center;
         gap: 6em;
 
+
         .content {
             display: flex;
             align-items: center;
@@ -163,8 +173,12 @@ section#info {
             gap: 3em;
             opacity: 0;
             transform: translateY(50px);
-
             transition: all 1s ease-out;
+
+            @media (max-width: 600px) {
+                flex-direction: column;
+            }
+
 
             &.fade-in {
                 opacity: 1;
@@ -176,6 +190,10 @@ section#info {
                 border-radius: 16px;
                 overflow: hidden;
 
+                @media (max-width: 600px) {
+                    width: 60%;
+                }
+
                 img {
                     width: 100%;
                 }
@@ -184,10 +202,18 @@ section#info {
 
             .contrent-info {
                 width: 40%;
+
+                @media (max-width: 600px) {
+                    width: 60%;
+                }
             }
 
             &.right {
                 flex-direction: row-reverse;
+
+                @media (max-width: 600px) {
+                    flex-direction: column;
+                }
             }
         }
 
